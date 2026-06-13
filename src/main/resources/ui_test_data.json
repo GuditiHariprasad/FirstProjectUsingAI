@@ -1,0 +1,29 @@
+{
+  "validLogin": {
+    "username": "Admin",
+    "password": "admin123",
+    "expectedTitle": "OrangeHRM"
+  },
+  "invalidLogin": {
+    "username": "InvalidUser",
+    "password": "InvalidPass",
+    "expectedError": "Invalid credentials"
+  },
+  "testUsers": [
+    {
+      "userId": "user123",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john.doe@orangehrm.com",
+      "department": "Finance"
+    },
+    {
+      "userId": "user456",
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "email": "jane.smith@orangehrm.com",
+      "department": "HR"
+    }
+  ]
+}
+

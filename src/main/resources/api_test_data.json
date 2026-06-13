@@ -1,0 +1,47 @@
+{
+  "createObject": {
+    "name": "Apple MacBook Pro 15",
+    "data": {
+      "year": 2021,
+      "price": 2499.99,
+      "CPU model": "Intel Core i9",
+      "Hard disk size": "1 TB"
+    }
+  },
+  "updateObject": {
+    "name": "Apple iPhone 13",
+    "data": {
+      "year": 2021,
+      "price": 999.99,
+      "color": "Midnight"
+    }
+  },
+  "testObjects": [
+    {
+      "id": "1",
+      "name": "Google Pixel 6",
+      "data": {
+        "year": 2021,
+        "price": 799.99,
+        "color": "Stormy Black"
+      }
+    },
+    {
+      "id": "2",
+      "name": "Apple iPhone 12",
+      "data": {
+        "year": 2020,
+        "price": 899.99,
+        "color": "Purple"
+      }
+    }
+  ],
+  "endpoints": {
+    "getAllObjects": "/objects",
+    "getObject": "/objects/{id}",
+    "createObject": "/objects",
+    "updateObject": "/objects/{id}",
+    "deleteObject": "/objects/{id}"
+  }
+}
+

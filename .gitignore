@@ -1,0 +1,72 @@
+# IDE
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+*.vscode
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Build files
+build/
+.gradle/
+
+# OS
+.DS_Store
+Thumbs.db
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# IDE
+*.swp
+*.swo
+*~
+.classpath
+.project
+.settings/
+*.bak
+
+# Reports
+test-results/
+surefire-reports/
+failsafe-reports/
+
+# Screenshots
+screenshots/
+
+# Environment
+.env
+.env.local
+
+# Node modules (if applicable)
+node_modules/
+npm-debug.log
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Cucumber reports generated during build
+cucumber-reports/
+
