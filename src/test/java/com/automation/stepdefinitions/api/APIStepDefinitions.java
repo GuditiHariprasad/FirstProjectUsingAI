@@ -146,13 +146,18 @@ public class APIStepDefinitions {
 
     /**
      * Send PUT request using the stored object ID
+     * IMPORTANT: This method ONLY works with stored ID from POST request
+     * The stored ID must be extracted before calling this method
      */
     @When("User sends a PUT request to the stored object endpoint with update payload")
     public void userSendsPutRequestToStoredObjectEndpoint() {
-        logger.info("Sending PUT request to stored object endpoint with ID: " + storedObjectId);
+        logger.info("Checking if object ID was stored from POST request...");
         assertThat(storedObjectId).isNotNull().isNotEmpty()
-                .withFailMessage("Object ID not stored. Please extract ID first.");
+                .withFailMessage("ERROR: Cannot perform PUT operation. Object ID not stored. " +
+                        "You must first create an object via POST request and extract its ID using " +
+                        "'Extract and store the object ID from POST response' step.");
 
+        logger.info("Sending PUT request to stored object endpoint with ID: " + storedObjectId);
         String endpoint = "/objects/" + storedObjectId;
         JsonObject updateObject = JsonUtils.getValueAsJsonObject(testData, "updateObject");
         String payload = JsonUtils.toJson(updateObject);
@@ -162,13 +167,18 @@ public class APIStepDefinitions {
 
     /**
      * Send DELETE request using the stored object ID
+     * IMPORTANT: This method ONLY works with stored ID from POST request
+     * The stored ID must be extracted before calling this method
      */
     @When("User sends a DELETE request to the stored object endpoint")
     public void userSendsDeleteRequestToStoredObjectEndpoint() {
-        logger.info("Sending DELETE request to stored object endpoint with ID: " + storedObjectId);
+        logger.info("Checking if object ID was stored from POST request...");
         assertThat(storedObjectId).isNotNull().isNotEmpty()
-                .withFailMessage("Object ID not stored. Please extract ID first.");
+                .withFailMessage("ERROR: Cannot perform DELETE operation. Object ID not stored. " +
+                        "You must first create an object via POST request and extract its ID using " +
+                        "'Extract and store the object ID from POST response' step.");
 
+        logger.info("Sending DELETE request to stored object endpoint with ID: " + storedObjectId);
         String endpoint = "/objects/" + storedObjectId;
         response = apiClient.delete(endpoint);
     }
@@ -186,6 +196,20 @@ public class APIStepDefinitions {
         // Verify the response contains the stored ID
         assertThat(responseBody).contains(storedObjectId)
                 .withFailMessage("Response does not contain the stored object ID: " + storedObjectId);
+    }
+
+    /**
+     * Explicit validation that stored ID is available
+     * Can be used before PUT/DELETE operations
+     */
+    @Then("Stored object ID should be available for operations")
+    public void verifyStoredObjectIdIsAvailable() {
+        logger.info("Verifying stored object ID is available...");
+        assertThat(storedObjectId).isNotNull().isNotEmpty()
+                .withFailMessage("ERROR: No stored object ID found. " +
+                        "You must first execute a POST request and extract the ID using " +
+                        "'Extract and store the object ID from POST response' step.");
+        logger.info("✓ Stored object ID is available: " + storedObjectId);
     }
 }
 
