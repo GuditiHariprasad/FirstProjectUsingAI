@@ -9,8 +9,6 @@ on:
 
 jobs:
   build:
-    #first job to run maven tests on cloud server
-    if: false # 👈 This completely skips this job from running
     # Use a cloud server with Ubuntu Linux
     runs-on: ubuntu-latest
 
@@ -39,13 +37,3 @@ jobs:
           name: maven-cucumber-report
           path: target/cucumber-reports/cucumber-html-reports/
 
-    #second job to run maven tests in docker container
-        runs-on: ubuntu-latest
-        steps:
-          - uses: actions/checkout@v4
-
-          - name: Build Docker Image
-            run: docker build -t my-cucumber-project .
-
-          - name: Run Tests in Docker
-            run: docker run my-cucumber-project
