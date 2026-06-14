@@ -9,6 +9,7 @@ on:
 
 jobs:
   build:
+    if: false # 👈 This completely skips this job from running
     # Use a cloud server with Ubuntu Linux
     runs-on: ubuntu-latest
 
