@@ -34,5 +34,5 @@ jobs:
         if: always() # Run this even if tests fail
         uses: actions/upload-artifact@v4
         with:
-          name: maven-reports
-          path: target/surefire-reports/
+          name: maven-cucumber-report
+          path: target/cucumber-reports/cucumber-html-reports/overview-features.html
