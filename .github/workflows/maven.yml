@@ -40,7 +40,6 @@ jobs:
           path: target/cucumber-reports/cucumber-html-reports/
 
     #second job to run maven tests in docker container
-    docker:
         runs-on: ubuntu-latest
         steps:
           - uses: actions/checkout@v4
