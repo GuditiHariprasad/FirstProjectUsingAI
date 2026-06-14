@@ -35,4 +35,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: maven-cucumber-report
-          path: target/cucumber-reports/cucumber-html-reports/overview-features.html
+          path: target/cucumber-reports/cucumber-html-reports/
